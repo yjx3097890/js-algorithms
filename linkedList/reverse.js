@@ -1,3 +1,5 @@
+import {iteratorList} from "./iterator.js";
+
 class Node {
     value=null;
     next=null;
@@ -19,5 +21,16 @@ node3.next = node4;
 node4.next = node5;
 
 function reverse(head) {
-
+// 链表的反转
+    let prev = null;
+    let curr = head;
+    while(curr) {
+        const next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
 }
+reverse(node1)
+iteratorList(node5)

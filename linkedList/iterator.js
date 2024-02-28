@@ -18,6 +18,23 @@ node2.next = node3;
 node3.next = node4;
 node4.next = node5;
 
-function iteratorList(head) {
+ export function iteratorList(head) {
+    // 循环遍历链表
+    let node = head;
+    while (node) {
+        console.log(node);
+        node = node.next;
+    }
+    return node;
 
 }
+// iteratorList(node1)
+function iteratorList2(head) {
+    // 递归遍历链表
+    if (head) {
+        iteratorList2(head.next);
+    }
+    return head;
+
+}
+iteratorList(node1)

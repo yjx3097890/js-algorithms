@@ -1,0 +1,20 @@
+{
+  "name": "js-algorithms",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "前端必会算法",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yjx3097890/js-algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yjx3097890/js-algorithms/issues"
+  },
+  "homepage": "https://github.com/yjx3097890/js-algorithms#readme"
+}
