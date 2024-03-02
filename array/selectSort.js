@@ -9,13 +9,10 @@ function selectSort(arr) {
             }
         }
         if (min !== i) {
-            const temp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = temp;
+            [arr[i], arr[min]] = [arr[min], arr[i]];
         }
     }
     return arr;
-
 }
 selectSort(arr)
 console.log(arr);
