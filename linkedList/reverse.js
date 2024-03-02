@@ -55,4 +55,3 @@ function reverse2(root) {
 reverse2(node1)
 iteratorList(node5)
 
-// console.log(node5)
