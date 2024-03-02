@@ -12,26 +12,28 @@ function quickSort( arr ) {
 }
 
 function quickSort1( arr ) {
+    if (arr.length <=1) return arr;
     const index = 0;
     let i = 1;
-        let j = arr.length-1;
-    while (i<j) {
-        if(arr[i] < arr[index]) {
-
-        }
-
-    }
-    for (let i = 1, j = arr.length-1; i < j;) {
-        if(arr[i] < item) {
-            [arr[i], arr[index]] = [arr[index], arr[i]];
-            i++;
-        }else if(arr[index] > arr[0]) {
-            [arr[j], arr[index]] = [arr[index], arr[j]];
+     let j = arr.length-1;
+    while (i<=j) {
+        if(arr[i] > arr[index]) {
+            [arr[i], arr[j]] = [arr[j], arr[i]];
             j--;
+            continue;
         }
+        if (arr[j]<arr[index]) {
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+            i++;
+            continue;
+        }
+        i++;
+        j--;
     }
+    [arr[index], arr[j]] = [arr[j], arr[index]];
+    return [...quickSort1(arr.slice(0, j)), arr[j] ,...quickSort1(arr.slice(i))];
 }
 
 
 
-console.log(quickSort(arr));
+console.log(quickSort1(arr));
