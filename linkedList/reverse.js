@@ -36,11 +36,23 @@ function reverse(head) {
 // iteratorList(node5)
 
 function reverse1(head) {
-    if (head === null || head.next === null) return head;
+    if ( head.next === null) return head;
     const newHead = reverse1(head.next);
     head.next.next = head;
     head.next = null;
     return newHead;
 }
-reverse1(node1)
+// reverse1(node1)
+// iteratorList(node5)
+
+function reverse2(root) {
+    if ( root.next === null) return root;
+    const last = reverse2(root.next);
+    last.next = root;
+    root.next = null;
+    return root;
+}
+reverse2(node1)
 iteratorList(node5)
+
+// console.log(node5)
