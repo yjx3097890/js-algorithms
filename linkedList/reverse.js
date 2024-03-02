@@ -32,5 +32,15 @@ function reverse(head) {
     }
     return prev;
 }
-reverse(node1)
+// reverse(node1)
+// iteratorList(node5)
+
+function reverse1(head) {
+    if (head === null || head.next === null) return head;
+    const newHead = reverse1(head.next);
+    head.next.next = head;
+    head.next = null;
+    return newHead;
+}
+reverse1(node1)
 iteratorList(node5)

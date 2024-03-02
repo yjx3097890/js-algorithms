@@ -22,19 +22,16 @@ node4.next = node5;
     // 循环遍历链表
     let node = head;
     while (node) {
-        console.log(node);
+        console.log(node.value);
         node = node.next;
     }
-    return node;
-
 }
-// iteratorList(node1)
-function iteratorList2(head) {
-    // 递归遍历链表
-    if (head) {
-        iteratorList2(head.next);
-    }
-    return head;
+ //iteratorList(node1)
 
+
+export  function iteratorList2(node) {
+    if (node == null) return;
+    console.log(node.value);
+    iteratorList2(node.next);
 }
-iteratorList(node1)
+//iteratorList2(node1)
