@@ -24,5 +24,10 @@ c.left = f;
 c.right = g;
 
 function preorder(root) {
-
+    if (root == null) return;
+    console.log(root.value);
+    preorder(root.left);
+    preorder(root.right);
 }
+
+preorder(a)
