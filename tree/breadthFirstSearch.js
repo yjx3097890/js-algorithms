@@ -23,7 +23,7 @@ b.right = e;
 c.left = f;
 c.right = g;
 
-function breadthFirstSearch(root, target) {
+function breadthFirstSearch(rootList, target) {
 }
 
-console.log(breadthFirstSearch(a, 'D')); // true
+console.log(breadthFirstSearch([a], 'D')); // true
