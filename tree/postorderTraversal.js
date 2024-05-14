@@ -23,11 +23,11 @@ b.right = e;
 c.left = f;
 c.right = g;
 
-function postorder(root) {
+export function postorder(root) {
     if (root == null) return;
     postorder(root.left);
     postorder(root.right);
     console.log(root.value);
 }
 
-postorder(a)
+// postorder(a)

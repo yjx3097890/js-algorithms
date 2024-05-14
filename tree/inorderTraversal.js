@@ -23,11 +23,11 @@ b.right = e;
 c.left = f;
 c.right = g;
 
-function inorder(root) {
+export function inorder(root) {
     if (root == null) return;
     inorder(root.left);
     console.log(root.value);
     inorder(root.right);
 }
 
-inorder(a);
+// inorder(a);
