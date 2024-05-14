@@ -24,6 +24,9 @@ c.left = f;
 c.right = g;
 
 function deepFirstSearch(root, target) {
+    if (root == null) return false;
+    if (root.value === target) return true;
+    return deepFirstSearch(root.left, target) || deepFirstSearch(root.right, target);
 }
 
 console.log(deepFirstSearch(a, 'D')); // true

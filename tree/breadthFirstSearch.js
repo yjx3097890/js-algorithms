@@ -23,7 +23,15 @@ b.right = e;
 c.left = f;
 c.right = g;
 
-function breadthFirstSearch(root, target) {
+function breadthFirstSearch(rootList, target) {
+    if (rootList.length === 0) return false;
+    const nextList = [];
+    for (let i = 0; i < rootList.length; i++) {
+        if (rootList[i].value === target) return true;
+        if (rootList[i].left) nextList.push(rootList[i].left);
+        if (rootList[i].right) nextList.push(rootList[i].right);
+    }
+    return breadthFirstSearch(nextList, target);
 }
 
-console.log(breadthFirstSearch(a, 'D')); // true
+console.log(breadthFirstSearch([a], 'D')); // true
