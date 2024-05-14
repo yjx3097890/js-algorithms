@@ -40,4 +40,11 @@ C.right = G;
 
 // 左右子树可互换
 function compareTree2(root1, root2) {
+    if (root1 === null && root2 === null) return true;
+    if (root1 === null || root2 === null) return false;
+    if (root1.value !== root2.value) return false;
+    return compareTree2(root1.left, root2.left) && compareTree2(root1.right, root2.right)
+        || compareTree2(root1.left, root2.right) && compareTree2(root1.right, root2.left);
 }
+
+console.log(compareTree2(a, A)); // true
