@@ -1,5 +1,6 @@
 import {isBalancedBinaryTree} from "./balancedBinaryTree.js";
 
+// 将二叉树变为平衡二叉树
 
 class Node {
     value = null;
@@ -27,7 +28,7 @@ function rotateTree(root) {
 
 console.log(isBalancedBinaryTree(a));
 
-const newRoot = rotateTree(node2);
+const newRoot = rotateTree(a);
 
 console.log(isBalancedBinaryTree(newRoot));
 console.log(newRoot);
