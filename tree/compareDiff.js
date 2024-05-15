@@ -39,7 +39,30 @@ C.left = F;
 C.right = G;
 
 function compareDiffTree(root1, root2, results = []) {
+    if (root1 === null && root2 === null) {
+        return;
+    }
 
+    if (root1 === null) {
+        results.push({type: 'add', origin: null, now: root2.value});
+        compareDiffTree(null, root2.left, results);
+        compareDiffTree(null, root2.right, results);
+        return;
+    }
+
+    if (root2 === null) {
+        results.push({type: 'remove', origin: root1.value, now: null});
+        compareDiffTree(root1.left, null, results);
+        compareDiffTree(root1.right, null, results);
+        return;
+    }
+
+    if (root1.value !== root2.value) {
+        results.push({type: 'change', origin: root1.value, now: root2.value});
+    }
+
+    compareDiffTree(root1.left, root2.left, results);
+    compareDiffTree(root1.right, root2.right, results);
 }
 
 // [{type: add, origin: null, now: B}, {type: remove, origin: D, now: null}, {type: change, origin: E, now: F}, {type: add, origin: null, now: G}]
