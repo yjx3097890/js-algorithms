@@ -25,7 +25,7 @@ b.right = e;
 c.left = f;
 c.right = g;
 
-function isBalancedBinaryTree(root) {
+export function isBalancedBinaryTree(root) {
 
 }
 
