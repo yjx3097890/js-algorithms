@@ -37,6 +37,19 @@ function makeBinarySearchTree(arr) {
 const a = makeBinarySearchTree(arr);
 
 function BSTSearch(root, target) {
+    if (root === null) {
+        return false;
+    }
+
+    if (root.value === target) {
+        return true;
+    }
+
+    if (target < root.value) {
+        return BSTSearch(root.left, target);
+    } else {
+        return BSTSearch(root.right, target);
+    }
 }
 
 console.log(BSTSearch(a, 1000));
