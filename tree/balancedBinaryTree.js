@@ -30,7 +30,7 @@ function getHeight(root) {
     return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
 }
 
-function isBalancedBinaryTree(root) {
+export function isBalancedBinaryTree(root) {
     if (root === null) return true;
     return Math.abs(getHeight(root.left) - getHeight(root.right)) <= 1
         && isBalancedBinaryTree(root.left)
@@ -38,3 +38,4 @@ function isBalancedBinaryTree(root) {
 }
 
 console.log(isBalancedBinaryTree(a));
+
