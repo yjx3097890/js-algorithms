@@ -20,14 +20,43 @@ a.right = c;
 c.left = b;
 c.right = d;
 
+function getDeep(root) {
+    if (root == null) return 0;
+    const leftDeep = getDeep(root.left);
+    const rightDeep = getDeep(root.right);
+    return Math.max(leftDeep, rightDeep) + 1;
+}
+
+function leftRotate(root) {
+    const newRoot = root.right;
+    root.right = root.right.left;
+    newRoot.left = root;
+    return newRoot;
+
+}
+
+function rightRotate(root) {
+    const newRoot = root.left;
+    root.left = root.left.right;
+    newRoot.right = root;
+    return newRoot;
+}
 
 function rotateTree(root) {
+    const leftDeep = getDeep(root.left);
+    const rightDeep = getDeep(root.right);
+    if (leftDeep - rightDeep > 1) {
+        return rightRotate(root);
+    } else if (rightDeep - leftDeep > 1) {
+        return leftRotate(root);
+    }
+    return root;
 
 }
 
 console.log(isBalancedBinaryTree(a));
 
-const newRoot = rotateTree(node2);
+const newRoot = rotateTree(a);
 
 console.log(isBalancedBinaryTree(newRoot));
 console.log(newRoot);
