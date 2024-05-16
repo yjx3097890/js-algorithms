@@ -43,10 +43,10 @@ function rightRotate(root) {
     return newRoot;
 }
 
-function rotateTree(root) {
+function toBalance(root) {
     if (isBalancedBinaryTree(root)) return root;
-    root.left = rotateTree(root.left);
-    root.right = rotateTree(root.right);
+    root.left = toBalance(root.left);
+    root.right = toBalance(root.right);
     const leftDeep = getDeep(root.left);
     const rightDeep = getDeep(root.right);
     if (leftDeep - rightDeep > 1) {
@@ -59,7 +59,7 @@ function rotateTree(root) {
 
 console.log(isBalancedBinaryTree(a));
 
-const newRoot = rotateTree(a);
+const newRoot = toBalance(a);
 
 console.log(isBalancedBinaryTree(newRoot));
 console.log(newRoot);
