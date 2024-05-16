@@ -37,5 +37,5 @@ export function isBalancedBinaryTree(root) {
         && isBalancedBinaryTree(root.right);
 }
 
-console.log(isBalancedBinaryTree(a));
+// console.log(isBalancedBinaryTree(a));
 

@@ -52,4 +52,4 @@ function BSTSearch(root, target) {
     }
 }
 
-console.log(BSTSearch(a, 1000));
+// console.log(BSTSearch(a, 1000));
