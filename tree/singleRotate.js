@@ -27,14 +27,15 @@ function getDeep(root) {
     return Math.max(leftDeep, rightDeep) + 1;
 }
 
+// 左旋
 function leftRotate(root) {
     const newRoot = root.right;
     root.right = root.right.left;
     newRoot.left = root;
     return newRoot;
-
 }
 
+// 右旋
 function rightRotate(root) {
     const newRoot = root.left;
     root.left = root.left.right;
@@ -43,6 +44,9 @@ function rightRotate(root) {
 }
 
 function rotateTree(root) {
+    if (isBalancedBinaryTree(root)) return root;
+    root.left = rotateTree(root.left);
+    root.right = rotateTree(root.right);
     const leftDeep = getDeep(root.left);
     const rightDeep = getDeep(root.right);
     if (leftDeep - rightDeep > 1) {
@@ -51,7 +55,6 @@ function rotateTree(root) {
         return leftRotate(root);
     }
     return root;
-
 }
 
 console.log(isBalancedBinaryTree(a));
