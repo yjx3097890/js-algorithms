@@ -24,7 +24,7 @@ function addNode(root, value) {
     return root;
 }
 
-function makeBinarySearchTree(arr) {
+export function makeBinarySearchTree(arr) {
     let root = null;
 
     for (let i = 0; i < arr.length; i++) {
