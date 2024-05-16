@@ -14,7 +14,7 @@ class Node {
     }
 }
 
-const arr = new Array(1000).fill(0).map((_) => Math.round(Math.random() * 1000));
+const arr = new Array(10000).fill(0).map((_) => Math.round(Math.random() * 1000));
 
 const a =  makeBinarySearchTree(arr);
 
@@ -71,9 +71,32 @@ function toBalance(root) {
 
 console.log(isBalancedBinaryTree(a));
 
+// 二叉搜索树查找
+
+let count =0;
+function BSTSearch(root, target) {
+    if (root === null) {
+        return false;
+    }
+    count++;
+    if (root.value === target) {
+        return true;
+    }
+    if (target < root.value) {
+        return BSTSearch(root.left, target);
+    } else {
+        return BSTSearch(root.right, target);
+    }
+}
+
+console.log(BSTSearch(a, 888));
+console.log(count);
+
 const newRoot = toBalance(a);
 
 console.log(isBalancedBinaryTree(newRoot));
 
-
+count = 0;
+console.log(BSTSearch(newRoot, 888));
+console.log(count);
 
