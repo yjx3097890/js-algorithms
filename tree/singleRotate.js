@@ -1,5 +1,6 @@
 import {isBalancedBinaryTree} from "./balancedBinaryTree.js";
 
+// 将二叉树变为平衡二叉树
 
 class Node {
     value = null;
