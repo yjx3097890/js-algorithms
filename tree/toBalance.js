@@ -1,4 +1,6 @@
 import {isBalancedBinaryTree} from "./balancedBinaryTree.js";
+import {makeBinarySearchTree} from "./BSTSearch.js";
+
 
 // 将二叉树变为平衡二叉树
 
@@ -12,14 +14,9 @@ class Node {
     }
 }
 
-const a = new Node('2');
-const b = new Node('3');
-const c = new Node('5');
-const d = new Node('6');
+const arr = new Array(1000).fill(0).map((_) => Math.round(Math.random() * 1000));
 
-a.right = c;
-c.left = b;
-c.right = d;
+const a =  makeBinarySearchTree(arr);
 
 
 function toBalance(root) {

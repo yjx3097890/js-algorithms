@@ -12,14 +12,16 @@ class Node {
     }
 }
 
-const a = new Node('2');
-const b = new Node('3');
-const c = new Node('5');
-const d = new Node('6');
+const a = new Node('8');
+const b = new Node('5');
+const c = new Node('2');
+const d = new Node('7');
+const e = new Node('6');
 
-a.right = c;
-c.left = b;
-c.right = d;
+a.left = b;
+b.left = c;
+b.right = d;
+d.left = e;
 
 
 function toBalance(root) {
