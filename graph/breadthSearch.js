@@ -24,7 +24,13 @@ nodeE.neighbors.push(nodeD);
 
 
 function breadthSearch(rootList, target, path = []) {
-
+    if (rootList.length === 0) return null;
+    const node = rootList.shift();
+    if (path.includes(node)) return breadthSearch(rootList, target, path);
+    if (node.value === target) return node;
+    path.push(node);
+    rootList.push(...node.neighbors);
+    return breadthSearch(rootList, target, path);
 }
 
 console.log(breadthSearch([nodeA], 'E'))

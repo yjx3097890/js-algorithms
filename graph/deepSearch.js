@@ -23,7 +23,17 @@ nodeD.neighbors.push(nodeA, nodeC, nodeE);
 nodeE.neighbors.push(nodeD);
 
 function deepSearch(node, target, path = []) {
-
+    if (!node) return null;
+    if (node.value === target) return node;
+    if (path.includes(node)) return null;
+    path.push(node);
+    for (let i = 0; i < node.neighbors.length; i++) {
+        const result = deepSearch(node.neighbors[i], target, path);
+        if (result) {
+            return result;
+        }
+    }
+    return null;
 }
 
 console.log(deepSearch(nodeA, 'E'))
