@@ -25,7 +25,14 @@ b.appendChild(e);
 b.appendChild(f);
 
 function deepSearch(root, target) {
-
+    if (root === null) return null;
+    if (root.value === target) return root;
+    for (const node of root.children) {
+        const result = deepSearch(node, target);
+        if (result) {
+            return result;
+        }
+    }
 }
 
 console.log(deepSearch(a, 'e'))

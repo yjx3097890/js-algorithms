@@ -25,6 +25,15 @@ b.appendChild(e);
 b.appendChild(f);
 
 function breadthSearch(rootList, target) {
+    if (rootList.length === 0) return null;
+    const nextRootList = [];
+    for (const root of rootList) {
+        if (root.value === target) return root;
+        for (const node of root.children) {
+            nextRootList.push(node);
+        }
+    }
+    return breadthSearch(nextRootList, target);
 }
 
 console.log(breadthSearch([a], 'e'))
