@@ -31,7 +31,38 @@ const graphMatrix = [
 
 // 普利姆算法
 function prim(nodes, graphMatrix, addedList = [], restList = [...nodes]) {
-
+    if (restList.length === 0) {
+        return;
+    }
+    if (addedList.length === 0) {
+        addedList.push(restList.shift());
+        prim(nodes, graphMatrix, addedList, restList);
+        return;
+    }
+    let minWeight = Infinity;
+    let minIndex = -1;
+    let addedIndex = -1;
+    for (const restNode of restList) {
+        const restIndex = nodes.indexOf(restNode);
+        for (const addedNode of addedList) {
+            const nodeIndex = nodes.indexOf(addedNode);
+            const weight = graphMatrix[restIndex][nodeIndex];
+            if (weight < minWeight) {
+                minWeight = weight;
+                minIndex = restIndex;
+                addedIndex = nodeIndex;
+            }
+        }
+    }
+    if (minIndex !== -1) {
+        const minNode = nodes[minIndex];
+        const node = nodes[addedIndex];
+        node.neighbors.push(minNode);
+        minNode.neighbors.push(node);
+        addedList.push(minNode);
+        restList = restList.filter(node => node !== minNode);
+    }
+    prim(nodes, graphMatrix, addedList, restList);
 }
 
 prim(nodes, graphMatrix);
@@ -40,5 +71,3 @@ console.log(nodeB.toString());
 console.log(nodeC.toString());
 console.log(nodeD.toString());
 console.log(nodeE.toString());
-
-
